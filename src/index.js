@@ -109,10 +109,9 @@ searchCity("New York");
 
 // 🙀Bonus Feature: Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 
-function celsiusFormat(event) {
-  event.preventDefault();
+function celsiusFormat() {
   let cTemp = document.querySelector("#celsius-link");
-  cTemp.innerHTML = celsius;
+  cTemp.innerHTML = `${cTemp}`;
 }
 
 let celsiusTemp = document.querySelector("#celsius-link");
