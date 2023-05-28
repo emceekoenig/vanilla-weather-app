@@ -119,7 +119,7 @@ celsiusTemp.addEventListener("click", celsiusFormat);
 
 function fahrenheitFormat(event) {
   event.preventDefault();
-  let celsius = 17;
+  let celsius = document.querySelector("#temp").innerHTML;
   let fahrenheit = Math.round((celsius * 9) / 5 + 32);
   let fahrenheitTemp = document.querySelector("#temp");
   fahrenheitTemp.innerHTML = fahrenheit;
