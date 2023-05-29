@@ -50,12 +50,27 @@ a:link {
   text-decoration: none;
 }
 
-a:visited {
+.units {
+  color: white;
+  font-size: 15px;
   text-decoration: none;
+  position: relative;
+  top: -20px;
 }
 
-a:hover {
+.units a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.units a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.units a:hover {
   text-decoration: underline;
+  color: white;
 }
 
 .city {
@@ -88,12 +103,6 @@ img:hover {
   margin-top: 20px;
   padding-right: 40px;
   text-align: right;
-}
-
-.units {
-  font-size: 20px;
-  position: relative;
-  top: -20px;
 }
 
 .col-3 {
