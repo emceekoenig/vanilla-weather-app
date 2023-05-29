@@ -26,7 +26,7 @@ let time = `${hours}:${minutes}`;
 
 let todaysDate = `${day} ${time}`;
 
-let dateandtime = document.querySelector("#dateandtime");
+let dateandtime = document.querySelector("#date-and-time");
 dateandtime.innerHTML = todaysDate;
 
 // Feature #2: add a search engine, when searching for a city display the city name on the page after user submits the form
