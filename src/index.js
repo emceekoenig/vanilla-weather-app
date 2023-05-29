@@ -42,6 +42,13 @@ function showTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/01d@2x.png`
+  );
+
   document.querySelector("#first-hi").innerHTML =
     response.data.list[0].main.temp_max;
   document.querySelector("#first-lo").innerHTML =
