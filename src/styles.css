@@ -40,7 +40,7 @@
   margin-right: -7px;
 }
 
-#icon img {
+.weather-temperature img {
   height: 64px;
   width: 64px;
 }
@@ -60,7 +60,7 @@ a:link {
   font-size: 15px;
   text-decoration: none;
   position: relative;
-  top: -20px;
+  top: 12px;
 }
 
 .units a:link {
