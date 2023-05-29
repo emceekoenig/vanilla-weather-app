@@ -33,9 +33,8 @@ dateandtime.innerHTML = todaysDate;
 
 function showTemperature(response) {
   document.querySelector("#city-heading").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -114,25 +113,27 @@ function getCurrentForecast(event) {
   navigator.geolocation.getCurrentPosition(searchForecast);
 }
 
-searchCity("New York");
-
 // 🙀Bonus Feature: Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 
-function displayCelsiusTemperature() {
-  let cTemp = document.querySelector("#celsius-link");
-  cTemp.innerHTML = `${cTemp}`;
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemp = document.querySelector("#temp");
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  fahrenheitTemp.innerHTML = fahrenheit;
 }
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemp = document.querySelector("#temp");
+  celsiusTemp.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+fahrenheitTemp.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusTemp = document.querySelector("#celsius-link");
 celsiusTemp.addEventListener("click", displayCelsiusTemperature);
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let celsius = document.querySelector("#temp").innerHTML;
-  let fahrenheit = Math.round((celsius * 9) / 5 + 32);
-  let fahrenheitTemp = document.querySelector("#temp");
-  fahrenheitTemp.innerHTML = fahrenheit;
-}
-
-let fahrenheitTemp = document.querySelector("#fahrenheit-link");
-fahrenheitTemp.addEventListener("click", displayFahrenheitTemperature);
+searchCity("New York");
