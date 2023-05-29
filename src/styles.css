@@ -40,6 +40,11 @@
   margin-right: -7px;
 }
 
+#icon img {
+  height: 64px;
+  width: 64px;
+}
+
 .netlify {
   text-align: center;
   margin-top: 15px;
