@@ -82,16 +82,12 @@ a:link {
   color: orangered;
 }
 
-.location-input {
-  background: #ffdacf;
-  border-style: none;
-  border-radius: 5px;
-  color: black;
-  font-size: 25px;
-  margin: 20px 0 20px 0;
-  padding: 10px 15px 10px 15px;
-  text-align: left;
-  width: 90%;
+#search-city-input {
+  width: 365px;
+}
+
+#search-button {
+  margin-left: 25px;
 }
 
 #current-location-arrow:hover {
@@ -102,7 +98,7 @@ a:link {
 #current-location-arrow {
   position: absolute;
   top: 50px;
-  right: 78px;
+  right: 64px;
   height: 30px;
   width: 30px;
   opacity: 0.7;
