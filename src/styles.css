@@ -2,6 +2,11 @@ body {
   background: #134056;
 }
 
+h1 {
+  font-size: 50px;
+  font-weight: 400;
+}
+
 .container {
   margin-top: 50px;
   width: 100%;
@@ -65,6 +70,7 @@ a:link {
   text-decoration: none;
   position: relative;
   top: 12px;
+  margin-left: 5px;
 }
 
 .units a:link {
@@ -131,11 +137,6 @@ img:hover {
   margin-bottom: 20px;
   height: 167px;
   width: 2px;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: 400;
 }
 
 .table {
