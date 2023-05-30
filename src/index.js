@@ -95,7 +95,7 @@ function getCurrentLocation(event) {
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-let currentLocationButton = document.querySelector("#current-button");
+let currentLocationButton = document.querySelector("#current-location-arrow");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function searchForecast(position) {
