@@ -14,9 +14,6 @@ let days = [
 
 let day = days[now.getDay()];
 let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
 
 let minutes = now.getMinutes();
 if (minutes < 10) {
@@ -98,7 +95,10 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-arrow");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function searchForecast(position) {
+function displayForecast(position) {
+  let forecastElement = document.querySelector("#weather-forecast");
+  forecastElement.innerHTML = "Forecast";
+
   let units = "metric";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -110,7 +110,7 @@ function searchForecast(position) {
 
 function getCurrentForecast(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchForecast);
+  navigator.geolocation.getCurrentPosition(displayForecast);
 }
 
 // 🙀Bonus Feature: Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
