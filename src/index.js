@@ -97,7 +97,25 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function displayForecast(position) {
   let forecastElement = document.querySelector("#weather-forecast");
-  forecastElement.innerHTML = "Forecast";
+
+  let forecastHTML = `<div class="row forecast-row">`;
+  let days = ["Wed", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png" alt="" class="weather-icon"></>
+          
+        <div class="weather-forecast-temperatures">
+        <strong id="first-hi">80°</strong id="first-lo">/58°</div>
+    </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
 
   let units = "metric";
   let latitude = position.coords.latitude;
@@ -137,3 +155,5 @@ let celsiusTemp = document.querySelector("#celsius-link");
 celsiusTemp.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
+
+displayForecast();

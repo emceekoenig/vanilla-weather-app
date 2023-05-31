@@ -8,7 +8,7 @@ h1 {
 }
 
 .container {
-  margin-top: 50px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -74,7 +74,7 @@ a:link {
 
 .units a:visited {
   text-decoration: none;
-  color: #726060;
+  color: #585c5e;
 }
 
 .units a:hover {
@@ -134,14 +134,24 @@ a:link {
   color: #134056;
   margin-top: 20px;
   margin-bottom: 5px;
-  height: 165px;
+  height: 125px;
   width: 2px;
 }
 
 .table {
-  color: #134056;
-  margin: 0 25px 25px 25px;
-  width: 90%;
+  color: #585c5e;
+  margin: 5px 10px;
+}
+
+.forecast-row {
+  color: #585c5e;
+  margin: 0px 0px 0px 60px;
+  padding: 0px 2px;
+  text-align: center;
+}
+
+.forecast-row > .col-2 {
+  padding: 0 16px;
 }
 
 .weather-forecast-date {
@@ -152,6 +162,7 @@ a:link {
 .weather-forecast-temperatures {
   font-size: 13px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .weather-emojis {
