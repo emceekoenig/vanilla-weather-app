@@ -14,13 +14,21 @@ let days = [
 
 let day = days[now.getDay()];
 let hours = now.getHours();
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
+
 let time = `${hours}:${minutes}`;
 
-let todaysDate = `${day} ${time}`;
+function standardTime() {
+  let hours = now.getHours();
+  if (hours > 12) return `${hours - 12}:${minutes} PM`;
+  else return `${hours}:${minutes} AM`;
+}
+
+let todaysDate = `${day} ${standardTime(time)}`;
 
 let dateandtime = document.querySelector("#date-and-time");
 dateandtime.innerHTML = todaysDate;
