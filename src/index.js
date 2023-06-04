@@ -26,7 +26,54 @@ let todaysDate = `${day} ${time}`;
 let dateandtime = document.querySelector("#date-and-time");
 dateandtime.innerHTML = todaysDate;
 
-// Feature #2: add a search engine, when searching for a city display the city name on the page after user submits the form
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row forecast-row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" class="weather-icon"></>
+          
+        <div class="weather-forecast-temperatures">
+        <strong id="first-hi">${Math.round(
+          forecastDay.temp.max
+        )}°</strong id="first-lo">/${Math.round(forecastDay.temp.min)}°</div>
+    </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getCurrentForecast(coordinates) {
+  let units = "metric";
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+  let apiKey = "842b36d55cb28eba74a018029d56b04c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemperature(response) {
   document.querySelector("#city-heading").innerHTML = response.data.name;
@@ -46,6 +93,8 @@ function showTemperature(response) {
   );
 
   iconElement.setAttribute("alt", response.data.weather[0].main);
+
+  getCurrentForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -82,40 +131,6 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-arrow");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function displayForecast(position) {
-  let forecastElement = document.querySelector("#weather-forecast");
-
-  let forecastHTML = `<div class="row forecast-row">`;
-  let days = ["Wed", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
-        <img
-          src="http://openweathermap.org/img/wn/50d@2x.png" alt="" class="weather-icon"></>
-          
-        <div class="weather-forecast-temperatures">
-        <strong id="first-hi">80°</strong id="first-lo">/58°</div>
-    </div>`;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-
-  forecastElement.innerHTML = forecastHTML;
-}
-
-function getCurrentForecast(coordinates) {
-  let units = "metric";
-  let latitude = coordinates.lat;
-  let longitude = coordinates.lon;
-  let apiKey = "842b36d55cb28eba74a018029d56b04c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-
-  console.log(apiUrl);
-  console.log("Hello world");
-}
-
 // 🙀Bonus Feature: Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 
 function displayFahrenheitTemperature(event) {
@@ -140,5 +155,3 @@ let celsiusTemp = document.querySelector("#celsius-link");
 celsiusTemp.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
-
-displayForecast();
