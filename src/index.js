@@ -46,19 +46,6 @@ function showTemperature(response) {
   );
 
   iconElement.setAttribute("alt", response.data.weather[0].main);
-
-  document.querySelector("#first-hi").innerHTML =
-    response.data.list[0].main.temp_max;
-  document.querySelector("#first-lo").innerHTML =
-    response.data.list[0].main.temp_min;
-  document.querySelector("#second-hi").innerHTML =
-    response.data.list[1].main.temp_max;
-  document.querySelector("#second-lo").innerHTML =
-    response.data.list[1].main.temp_min;
-  document.querySelector("#third-hi").innerHTML =
-    response.data.list[2].main.temp_max;
-  document.querySelector("#third-lo").innerHTML =
-    response.data.list[2].main.temp_min;
 }
 
 function searchCity(city) {
@@ -116,19 +103,17 @@ function displayForecast(position) {
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
-
-  let units = "metric";
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "842b36d55cb28eba74a018029d56b04c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-
-  axios.get(apiUrl).then(showTemperature);
 }
 
-function getCurrentForecast(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(displayForecast);
+function getCurrentForecast(coordinates) {
+  let units = "metric";
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+  let apiKey = "842b36d55cb28eba74a018029d56b04c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+
+  console.log(apiUrl);
+  console.log("Hello world");
 }
 
 // 🙀Bonus Feature: Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
