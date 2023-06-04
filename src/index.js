@@ -14,7 +14,6 @@ let days = [
 
 let day = days[now.getDay()];
 let hours = now.getHours();
-
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
@@ -66,12 +65,11 @@ function displayForecast(response) {
 }
 
 function getCurrentForecast(coordinates) {
-  let units = "metric";
+  let units = "imperial";
   let latitude = coordinates.lat;
   let longitude = coordinates.lon;
   let apiKey = "842b36d55cb28eba74a018029d56b04c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -98,7 +96,7 @@ function showTemperature(response) {
 }
 
 function searchCity(city) {
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "842b36d55cb28eba74a018029d56b04c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
@@ -111,7 +109,7 @@ function handleSubmit(event) {
 }
 
 function searchLocation(position) {
-  let units = "metric";
+  let units = "imperial";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "842b36d55cb28eba74a018029d56b04c";
@@ -139,19 +137,5 @@ function displayFahrenheitTemperature(event) {
   let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
   fahrenheitTemp.innerHTML = fahrenheit;
 }
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let celsiusTemp = document.querySelector("#temp");
-  celsiusTemp.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitTemp = document.querySelector("#fahrenheit-link");
-fahrenheitTemp.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusTemp = document.querySelector("#celsius-link");
-celsiusTemp.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
