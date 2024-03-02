@@ -52,7 +52,7 @@ function displayForecast(response) {
     if (index < 5) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
           src="http://openweathermap.org/img/wn/${
@@ -152,6 +152,7 @@ function changeTheme() {
   let containerElement = document.querySelector(".container");
   let cardElement = document.querySelector(".card");
   let detailsElement = document.querySelector(".details");
+  let vrElement = document.querySelector(".vr");
   let forecastRow = document.querySelector("#weather-forecast");
 
   if (body.classList.contains("dark")) {
@@ -182,6 +183,12 @@ function changeTheme() {
     detailsElement.classList.remove("dark");
   } else {
     detailsElement.classList.add("dark");
+  }
+
+  if (vrElement.classList.contains("dark")) {
+    vrElement.classList.remove("dark");
+  } else {
+    vrElement.classList.add("dark");
   }
 
   if (forecastRow.classList.contains("dark")) {

@@ -8,34 +8,28 @@ h1 {
 }
 
 .container {
-  margin-top: 20px;
   width: 100%;
+  margin-top: 30%;
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.8);
   border-style: none;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
   color: #134056;
-  margin: 0 auto;
-  margin-top: 50px;
+  height: 60%;
+  margin: auto;
   text-align: center;
-  width: fit-content;
+  width: 100%;
 }
 
 .card-body {
   padding-bottom: 0;
-  width: 600px;
 }
 
 .search-form {
   border-style: none;
   border-radius: 5px;
   color: rgb(52, 51, 51);
-  margin: 20px 0 20px 0;
-  padding: 10px 25px 10px 25px;
-  text-align: left;
-  width: auto;
 }
 
 .btn-light {
@@ -47,11 +41,6 @@ h1 {
 .weather-temperature img {
   height: 64px;
   width: 64px;
-}
-
-.netlify {
-  color: #585c5e;
-  text-align: center;
 }
 
 a:link {
@@ -96,9 +85,9 @@ a:link {
 }
 
 #current-location-arrow {
-  position: absolute;
+  /*position: absolute;
   top: 55px;
-  right: 72px;
+  right: 72px;*/
   height: 20px;
   width: 20px;
   opacity: 0.7;
@@ -114,6 +103,10 @@ a:link {
   margin-left: -40px;
   text-align: right;
   white-space: nowrap;
+}
+
+.weather-temperature {
+  margin-left: 30px;
 }
 
 .col-5 {
@@ -138,22 +131,20 @@ a:link {
   width: 2px;
 }
 
-.table {
-  color: #585c5e;
-  margin: 5px 10px;
-}
-
 #weather-forecast {
+  background-color: inherit;
   color: inherit;
-  margin: 0px 0px 0px 22px;
-  padding: 0px 2px;
-  text-align: center;
+  /*margin-left: 0px;
+  padding: 0px 2px;*/
+  height: auto;
+  line-height: auto;
+  margin: 20px auto;
 }
 
-.forecast-row > .col-2 {
+/*.forecast-row > .col-2 {
   padding: 0 16px;
   margin: 0 7px;
-}
+}*/
 
 .weather-forecast-date {
   font-size: 16px;
@@ -178,15 +169,15 @@ a:link {
 }
 
 .theme {
-  display: flex;
-  justify-content: center;
-  margin: 15px 0 5px 0;
+  display: block;
+  height: 10%;
+  margin: auto;
   transition: 300ms ease-in-out;
 }
 
 .theme:hover {
   cursor: pointer;
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .dark {
@@ -200,7 +191,7 @@ a:link {
 }
 
 .dark .container {
-  background: rgba(255, 255, 255, 0.1);
+  /*background: rgba(255, 255, 255, 0.1);*/
   border-style: none;
   box-shadow: none;
 }
