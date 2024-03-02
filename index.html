@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="src/styles.css" />
   <title>Weather App</title>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/a052a0b8f5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
               <div class="d-flex" id="temp"> </div>
               <span class="units">°F</span>
             </h1>
-            <p>
+            <p class="details">
               Humidity: <span id="humidity"></span>%
               <br />
               Wind: <span id="wind"></span> m/h
@@ -76,6 +77,10 @@
 
     </div>
   </div>
+
+  <div class="theme" title="Change Theme"><i class="fa-regular fa-circle-half-stroke"
+      style="color: rgba(0, 0, 255, 0.1)f;"></i></div>
+
   <p class="netlify"><a href="https://github.com/emceekoenig/vanilla-weather-app">Open-source code</a> by Chelsea Koenig
     and <a href="https://elegant-profiterole-66e3d4.netlify.app/">hosted on Netlify.</a>
   </p>

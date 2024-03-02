@@ -18,6 +18,7 @@ h1 {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
   color: #134056;
   margin: 0 auto;
+  margin-top: 50px;
   text-align: center;
   width: fit-content;
 }
@@ -49,9 +50,8 @@ h1 {
 }
 
 .netlify {
-  text-align: center;
-  margin-top: 15px;
   color: #585c5e;
+  text-align: center;
 }
 
 a:link {
@@ -143,8 +143,8 @@ a:link {
   margin: 5px 10px;
 }
 
-.forecast-row {
-  color: #585c5e;
+#weather-forecast {
+  color: inherit;
   margin: 0px 0px 0px 22px;
   padding: 0px 2px;
   text-align: center;
@@ -175,4 +175,32 @@ a:link {
   height: 60px;
   width: 60px;
   text-align: center;
+}
+
+.theme {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 5px 0;
+  transition: 300ms ease-in-out;
+}
+
+.theme:hover {
+  cursor: pointer;
+  transform: scale(2);
+}
+
+.dark {
+  background: black;
+  color: white;
+}
+
+.dark .card {
+  background: #134056;
+  color: white;
+}
+
+.dark .container {
+  background: rgba(255, 255, 255, 0.1);
+  border-style: none;
+  box-shadow: none;
 }

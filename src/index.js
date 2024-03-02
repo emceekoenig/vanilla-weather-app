@@ -146,4 +146,52 @@ function displayFahrenheitTemperature(event) {
   fahrenheitTemp.innerHTML = fahrenheit;
 }
 
+function changeTheme() {
+  let body = document.querySelector("body");
+  let paragraphElement = document.querySelector("p");
+  let containerElement = document.querySelector(".container");
+  let cardElement = document.querySelector(".card");
+  let detailsElement = document.querySelector(".details");
+  let forecastRow = document.querySelector("#weather-forecast");
+
+  if (body.classList.contains("dark")) {
+    body.classList.remove("dark");
+  } else {
+    body.classList.add("dark");
+  }
+
+  if (paragraphElement.classList.contains("dark")) {
+    paragraphElement.classList.remove("dark");
+  } else {
+    paragraphElement.classList.add("dark");
+  }
+
+  if (containerElement.classList.contains("dark")) {
+    containerElement.classList.remove("dark");
+  } else {
+    containerElement.classList.add("dark");
+  }
+
+  if (cardElement.classList.contains("dark")) {
+    cardElement.classList.remove("dark");
+  } else {
+    cardElement.classList.add("dark");
+  }
+
+  if (detailsElement.classList.contains("dark")) {
+    detailsElement.classList.remove("dark");
+  } else {
+    detailsElement.classList.add("dark");
+  }
+
+  if (forecastRow.classList.contains("dark")) {
+    forecastRow.classList.remove("dark");
+  } else {
+    forecastRow.classList.add("dark");
+  }
+}
+
+let themeButton = document.querySelector(".theme");
+themeButton.addEventListener("click", changeTheme);
+
 searchCity("New York");
